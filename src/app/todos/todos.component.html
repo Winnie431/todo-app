@@ -1,0 +1,59 @@
+<section class="heading-section">
+    <h1 class="title is-3">ToDo List</h1>
+    
+</section>
+
+<div class="container">
+    <div class="add-todo-box">
+        <form #form="ngForm" (ngSubmit) = "onFormSubmit(form)">
+            <h2 class="title is-5">ToDo List</h2>    
+            <div class="field">
+                <div class="field is-grouped">
+                    <p class="control is-expanded">
+                      <input  ngModel   #todoTextField="ngModel" required name="text" class="input" type="text" placeholder="New Task">
+                    </p>
+                    <p class="control">
+                      <button class="button  alt-gradient-button">
+                          <i class="material-icons">add</i>
+                        Add
+                      </button>
+                    </p>
+                  </div>
+                
+            </div>
+            <!-- <div *ngIf="todoTextField.invalid" >
+              <p class="help is-danger" *ngIf="todoTextField.errors.required">Please enter the text of todo</p>
+          </div> -->
+          </form>
+    
+    </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <div class="todos-list">
+      
+      <div class="todo-item" *ngFor="let todo of todos" [class.completed]="todo.completed">
+        <div class="check-box">
+            <input type="checkbox" [checked]="(todo.completed ? 'true' :   '')">
+            <!-- <i class="material-icons"> check</i> -->
+        </div>
+        <div class="todo-text">
+            {{todo.text}}
+        </div>
+        <div class="todo-controls-box">
+            <div class="todo-controls-button">
+                <i class="material-icons">edit</i>
+            </div>
+            <div class="todo-controls-button is-danger">
+                <i class="material-icons">delete</i>
+            </div>
+    
+        </div>
+    
+    </div>
+    </div>
+  </div>
+</section>
+
