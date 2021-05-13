@@ -10,13 +10,13 @@ import { TododataserviceService } from '../shared/tododataservice.service';
 })
 export class TodosComponent implements OnInit {
 
-  todos:Todo[] =[]
+  todos!:Observable<Object>
 
   constructor( private tododataservceService:TododataserviceService  ) { }
 
-  ngOnInit(): void {
-  this.todos = this.tododataservceService.getAllTodos()
-  }
+  ngOnInit() : void {
+    this.todos=this.tododataservceService.getAllTodos() 
+}
 
   onFormSubmit(form:NgForm){
     if (form.invalid) return alert("form is invalid")
