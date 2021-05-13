@@ -18,24 +18,9 @@ export class TododataserviceService {
     this.todos = this.getAllTodos()
    }
 
-  getAllTodos(): Todo[] {
-    this.http.get(API_URL + 'todos/')
-    .subscribe((response : any ) =>{
-          this.todos = response
-          console.log(this.todos)
-    })
-     return this.todos
-  }
-
-  addTodo(todo:Todo){
-    this.todos.push(todo)
-  }
-
-  updateTodo(index: number, updatedTodo:Todo){
-    this.todos[index] = updatedTodo
-  }
-
-  deleteTodo(index: number){
-    this.todos.splice(index ,1)
-  }
+  
+ getAllTodos(){
+   return this.http.get(API_URL + 'todos/')
+ }
+ 
 }
